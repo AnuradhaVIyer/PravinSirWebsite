@@ -1,4 +1,6 @@
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Header from "./components/header";
 import About from "./components/about";
 import CloudDevOpsConsulting from "./components/Consulting";
@@ -8,41 +10,47 @@ import Contact from "./components/contact";
 import SocialLinks from "./components/SocialLinks";
 import Hero from "./components/hero";
 import Books from "./components/books";
-import Footer from "./components/footer"
+import Footer from "./components/footer";
 import Navigation from "./components/Navigation";
 import Services from "./components/Services";
+import DMI from "./components/dmi";
+
 function App() {
   return (
-    <div
-      className="font-jakarta min-h-screen"
-      style={{ backgroundColor: "#F2F6FC" }} // Soft Azure background
-    >
-   
-      <Header />
+    <Router>
+      <div
+        className="font-jakarta min-h-screen"
+        style={{ backgroundColor: "#F2F6FC" }}
+      >
+        <Header />
 
-      <main >
-        <Navigation />
-     
-        <Hero />
- 
- <Services />
+        <main>
+          <Navigation />
 
-                <About />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero />
+                  <Services />
+                  <About />
+                  <SocialLinks />
+                  <Courses />
+                  <Books />
+                  <LearnersTrust />
+                  <Contact />
+                </>
+              }
+            />
+            <Route path="/dmi" element={<DMI />} />
+            
+          </Routes>
 
-
-         <SocialLinks />
-
-        <Courses />
-
-        <Books />
-
-    
-        <LearnersTrust />
-
-        <Contact />
-        <Footer />
-      </main>
-    </div>
+          <Footer />
+        </main>
+      </div>
+    </Router>
   );
 }
 
