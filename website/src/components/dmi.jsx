@@ -38,20 +38,20 @@ export default function DMI() {
   ];
 
   const curriculum = [
-    ["Week 0", "Internet, Networking & Basic Tools + ChatGPT Troubleshooting"],
-    ["Week 1", "Linux Essentials, Shell Scripting & System Administration"],
-    ["Week 2", "Git, GitHub, Branching, Pull Requests, Mini Project"],
-    ["Week 3", "DevOps Fundamentals, CI/CD Basics, Agile, Cloud Intro"],
-    ["Week 4", "AWS Cloud – IAM, S3, EC2, VPC, Deploy React App"],
-    ["Week 5", "More AWS – Databases, RDS, CloudWatch, Deployment"],
-    ["Week 6", "Azure Cloud – VM, Networking, Database, Deploy 3-tier App"],
-    ["Week 7", "Terraform – IaC, Providers, Variables, Modules, Infra Deployment"],
-    ["Week 8", "Ansible – Automation, Playbooks, Roles, Full Cloud Deployment"],
-    ["Week 9", "Azure DevOps – Pipelines, CI/CD, Production Deployment"],
-    ["Week 10", "Docker & Containerization – Dockerfile, Compose, Multi-stage"],
-    ["Week 11", "Kubernetes – Pods, ReplicaSets, Deployments, Scaling"],
-    ["Week 12", "Observability – Prometheus, Grafana, Dashboards, Monitoring"],
-    ["Week 13", "🎓 Final Project + Graduation"],
+    ["Week 0", "Intro: AI, ChatGPT, Networking & VS Code setup"],
+    ["Week 1", "Linux essentials, file systems and shell scripting"],
+    ["Week 2", "Git & GitHub workflows, PRs, branching strategies"],
+    ["Week 3", "DevOps lifecycle: builds, tests, and releases"],
+    ["Week 4", "AWS fundamentals with hands-on labs"],
+    ["Week 5", "AWS challenge & optimization"],
+    ["Week 6", "Azure basics and hybrid-cloud patterns"],
+    ["Week 7", "Terraform: IaC best practices & modules"],
+    ["Week 8", "Ansible: configuration management & secrets"],
+    ["Week 9", "Azure DevOps/GitHub Actions: CI/CD pipelines"],
+    ["Week 10", "Docker: images, registries, and workflows"],
+    ["Week 11", "Kubernetes: cluster patterns & workloads"],
+    ["Week 12", "Observability: Prometheus, Grafana, ELK, SLOs"],
+    ["Week 13", "🎓 Final Project + Graduation" ]
   ];
 
 
@@ -389,63 +389,97 @@ export default function DMI() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="w-full bg-gradient-to-br from-black via-gray-900 to-black py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Voices of <span className="text-green-300">Success</span>
-            </h2>
-            <p className="text-gray-400 text-lg">Real feedback from our alumni community</p>
-          </div>
+      
+<section className="w-full bg-gradient-to-br from-black via-gray-900 to-black py-20">
+  <div className="max-w-6xl mx-auto px-6">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        Voices of <span className="text-green-300">Success</span>
+      </h2>
+      <p className="text-gray-400 text-lg">Real feedback from our alumni community</p>
+    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Priya S",
-                role: "DevOps Engineer",
-                text: "Hands-on, intense, and career changing. The mentorship brought production-level thinking.",
-                avatar: "PS"
-              },
-              {
-                name: "Rohit M",
-                role: "Cloud Engineer",
-                text: "Built a real CI/CD pipeline and used it in interviews — it stood out immediately.",
-                avatar: "RM"
-              },
-              {
-                name: "Anita K",
-                role: "SRE",
-                text: "Free, structured, and motivating. Squad collaboration was the best learning experience.",
-                avatar: "AK"
-              }
-            ].map((testimonial, index) => (
-              <div 
-                key={index}
-                className="group bg-gradient-to-br from-gray-900 to-black p-8 rounded-3xl border border-gray-800 hover:border-green-400/30 transition-all duration-500 hover:scale-105"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-400/20 to-emerald-400/20 flex items-center justify-center border border-green-400/30 group-hover:scale-110 transition-transform">
-                    <span className="text-green-300 font-bold text-lg">{testimonial.avatar}</span>
-                  </div>
-                  <div>
-                    <div className="font-bold text-white text-lg">{testimonial.name}</div>
-                    <div className="text-green-300 text-sm">{testimonial.role}</div>
-                  </div>
-                </div>
-                <blockquote className="text-gray-300 leading-relaxed italic">
-                  "{testimonial.text}"
-                </blockquote>
-                <div className="flex gap-1 mt-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
-                  ))}
+    {/* FIXED TESTIMONIALS ARRAY */}
+    {(() => {
+      const testimonials = [
+        {
+          name: "Anuradha Iyer",
+          role: "DMI – Cohort-1",
+          feedback:
+            "I was selected in the top 100. I am very happy with the cohort. I got direction as to how to upskill my DevOps skills. Lots of hands-on labs and assignments. The content is very good. The co-mentors follow up regularly. Amazing energy. Don’t miss this opportunity!",
+          image:
+            "https://media.licdn.com/dms/image/v2/C5103AQHZh8sVH-uNqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1549595986002?e=1764806400&v=beta&t=EfojpBz32jRZjXXOtKxKWaUWn7yckbgSY0YqEbyBGxQ",
+        },
+        {
+          name: "Samanta Rizzo",
+          role: "DMI – Cohort-1",
+          feedback:
+            "Here, the mentors truly care about our growth. Over 12 weeks, we became a strong community. Even those who didn’t complete Cohort-1 joined Cohort-2 and still stay connected. This is more than a program — it's a family.",
+          image:
+            "https://media.licdn.com/dms/image/v2/D4D03AQGTSnmSulkNWw/profile-displayphoto-shrink_800_800/B4DZdU_SFIHAAc-/0/1749477566085?e=1764806400&v=beta&t=a3a2PBme1lxXAjiVoXgzD-D0VylooESu0Hr2g2aNTmY",
+        },
+        {
+          name: "Mobarak Hosen",
+          role: "DMI – Cohort-1",
+          feedback:
+            "I wasn't selected in the initial 100! But I kept doing the assignments and after 2 weeks I got promoted to the top 100 — everything changed. The cohort is free but requires deep commitment. This community is truly life-changing.",
+          image:
+            "https://media.licdn.com/dms/image/v2/D5635AQGSdjVkC-S_Tg/profile-framedphoto-shrink_800_800/B56ZlDsRW0IsAg-/0/1757777303331?e=1764079200&v=beta&t=zHI2f4jT8IMzUHaPbOEaTmOgt9ZdEflTeuIGTg9Rq5U",
+        },
+        {
+          name: "Tanisha Borana",
+          role: "DMI – Cohort-1",
+          feedback:
+            "Truly proud to be part of Cohort-1 — this program transformed my confidence in DevOps and Cloud. A big thanks to Pravin Mishra and all co-mentors for their constant support. The teamwork and encouragement made this journey unforgettable.",
+          image:
+            "https://media.licdn.com/dms/image/v2/D4D35AQE_cw2j7p3YtQ/profile-framedphoto-shrink_800_800/B4DZnT8z0PIgAg-/0/1760197557940?e=1764079200&v=beta&t=_5W6tefqV9YL-rvwKjIk8LBIVce70Vumr4A002DvKA4",
+        },
+        {
+          name: "Akintade Aduroja",
+          role: "DMI – Cohort-1",
+          feedback:
+            "I’m proud of this movement by Pravin Mishra. My mentors have given us all the room to grow and excel. Learning never stops — mastery comes from devotion to the craft.",
+          image:
+            "https://media.licdn.com/dms/image/v2/D4D03AQE-fZe00UwyAg/profile-displayphoto-crop_800_800/B4DZlh5cHYG8AM-/0/1758284072405?e=1764806400&v=beta&t=FfSQWxuvAQewsipl5-0kjALqX6vfMMSmYMmxh3uRYTc",
+        },
+      ];
+
+      return (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((t, index) => (
+            <div
+              key={index}
+              className="group bg-gradient-to-br from-gray-900 to-black p-8 rounded-3xl border border-gray-800 hover:border-green-400/30 transition-all duration-500 hover:scale-105"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <img
+                  src={t.image}
+                  alt={t.name}
+                  className="w-14 h-14 rounded-2xl object-cover border border-green-400/30 group-hover:scale-110 transition-transform"
+                />
+                <div>
+                  <div className="font-bold text-white text-lg">{t.name}</div>
+                  <div className="text-green-300 text-sm">{t.role}</div>
                 </div>
               </div>
-            ))}
-          </div>
+
+              <blockquote className="text-gray-300 leading-relaxed italic">
+                “{t.feedback}”
+              </blockquote>
+
+              <div className="flex gap-1 mt-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
-      </section>
+      );
+    })()}
+  </div>
+</section>
+
 
       {/* APPLICATION FORM SECTION */}
       <section id="dmi-form" className="w-full bg-black py-20">

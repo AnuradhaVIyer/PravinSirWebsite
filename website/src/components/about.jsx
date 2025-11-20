@@ -1,6 +1,6 @@
 import React from "react";
 import { Briefcase, BookOpen, PenTool, Presentation } from "lucide-react";
-
+import signature from "../assets/signature.png";
 const About = () => {
   return (
     <section className="w-full py-20 px-4 font-sans bg-white">
@@ -22,7 +22,7 @@ const About = () => {
         {/* Signature Placeholder */}
         <div className="my-12 flex justify-center">
           <img
-            src="/signature.png"
+            src={signature}
             alt="signature"
             className="w-64 opacity-80"
           />

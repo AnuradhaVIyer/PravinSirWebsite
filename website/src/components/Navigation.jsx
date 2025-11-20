@@ -1,5 +1,6 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import logo from "../assets/logo.png";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,9 +29,9 @@ export default function Navigation() {
        {/* Logo */}
 <div className="flex items-center">
   <img
-    src="/your-logo.png"
+    src={logo}
     alt="Logo"
-    className="h-28 w-auto object-contain"
+    className="h-16 w-35 object-contain"
   />
 </div>
 

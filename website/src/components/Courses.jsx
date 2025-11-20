@@ -1,6 +1,14 @@
 export default function Courses() {
   const courses = [
     {
+      title: "DMI – Cloud & DevOps Masterclass (Classroom Program)",
+      duration: "20 hours (Offline + Hands-on)",
+      price: "Included in DMI Program",
+      status: "Live",
+      img: "/dmi-course.jpg", // you can replace with your image path
+      link: "https://www.youtube.com/playlist?list=PLVOdqXbCs7bX88JeUZmK4fKTq2hJ5VS89", // replace with your official link
+    },
+    {
       title: "AWS DevOps & CI/CD with AWS CodePipeline for Engineers",
       duration: "15 hours",
       price: "₹409",

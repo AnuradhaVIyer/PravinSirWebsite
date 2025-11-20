@@ -1,4 +1,5 @@
 import { Linkedin, Twitter, Github, Mail, Instagram, Youtube } from "lucide-react";
+import logo from "../assets/logo.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,14 +12,11 @@ export default function Footer() {
 
           {/* BRAND + DESCRIPTION */}
           <div className="col-span-1 md:col-span-2">
-            
-            {/* Logo */}
-            <div className="flex items-center">
-              <img
-                src="/your-logo.png"
-                alt="Logo"
-                className="h-28 w-auto object-contain"
-              />
+            <div className="flex items-center space-x-2">
+
+              <h2 className="text-2xl font-bold flex items-center">
+                <img src={logo} alt="Pravin Mishra" className="w-32 h-20" />
+              </h2>
             </div>
 
             <p className="text-gray-400 leading-relaxed mb-6 max-w-md mt-4">
@@ -28,25 +26,25 @@ export default function Footer() {
 
             {/* SOCIAL ICONS */}
             <div className="flex space-x-4">
-              
+
               {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/pravin-mishra-aws-trainer/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center
-                           hover:bg-yellow-400 hover:text-black transition-all duration-200"
+                  hover:bg-yellow-400 hover:text-black transition-all duration-200"
               >
                 <Linkedin size={20} />
               </a>
 
-              {/* Twitter / X */}
+              {/* Twitter */}
               <a
                 href="https://x.com/pravinmishra88"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center
-                           hover:bg-yellow-400 hover:text-black transition-all duration-200"
+                  hover:bg-yellow-400 hover:text-black transition-all duration-200"
               >
                 <Twitter size={20} />
               </a>
@@ -57,9 +55,18 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center
-                           hover:bg-yellow-400 hover:text-black transition-all duration-200"
+                  hover:bg-yellow-400 hover:text-black transition-all duration-200"
               >
                 <Github size={20} />
+              </a>
+
+              {/* Instagram */}
+              <a
+                href="mailto:info@figuringservices.com"
+                className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center
+                  hover:bg-yellow-400 hover:text-black transition-all duration-200"
+              >
+                <Mail size={20} />
               </a>
 
               {/* Instagram */}
@@ -68,20 +75,9 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center
-                           hover:bg-yellow-400 hover:text-black transition-all duration-200"
+                  hover:bg-yellow-400 hover:text-black transition-all duration-200"
               >
                 <Instagram size={20} />
-              </a>
-
-              {/* YouTube */}
-              <a
-                href="https://www.youtube.com/@awswithpravinmishra"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center
-                           hover:bg-yellow-400 hover:text-black transition-all duration-200"
-              >
-                <Youtube size={22} />
               </a>
 
               {/* UDEMY */}
@@ -90,18 +86,42 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center
-                           hover:bg-yellow-400 hover:text-black transition-all duration-200"
+                  hover:bg-yellow-400 hover:text-black transition-all duration-200"
               >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L3 7l9 5 9-5-9-5zm9 7l-9 5-9-5v6l9 5 9-5V9z" />
+                </svg>
+              </a>
+
+              {/* YOUTUBE */}
+              <a
+                href="https://www.youtube.com/results?search_query=pravin+mishra"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center
+                  hover:bg-yellow-400 hover:text-black transition-all duration-200"
+              >
+                <Youtube size={22} />
+              </a>
+
+              {/* UDEMY */}
+              {/* <a
+                href="https://www.udemy.com/user/pravin-mishra-30/?kw=prav&src=sac"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center
+                           hover:bg-yellow-400 hover:text-black transition-all duration-200"
+              > */}
                 {/* Udemy SVG */}
-                <svg
+                {/* <svg
                   width="22"
                   height="22"
                   viewBox="0 0 256 256"
                   fill="currentColor"
                 >
-                  <path d="M128 24L16 88l112 64 112-64L128 24zm112 88l-112 64L16 112v80l112 64 112-64v-80z"/>
+                  <path d="M10 15l5.19-3L10 9v6zm12-3c0 0-0-4-0.52-5.97-0.29-1.09-1.14-1.95-2.23-2.24C17.48 3.26 12 3.26 12 3.26s-5.48 0-7.25.53c-1.09.29-1.94 1.15-2.23 2.24C2 8 2 12 2 12s0 4 0.52 5.97c.29 1.09 1.14 1.95 2.23 2.24 1.77.53 7.25.53 7.25.53s5.48 0 7.25-.53c1.09-.29 1.94-1.15 2.23-2.24C22 16 22 12 22 12z"/>
                 </svg>
-              </a>
+              </a> */}
 
             </div>
           </div>
@@ -123,8 +143,31 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><a href="#about" className="text-gray-400 hover:text-yellow-400">About Me</a></li>
               <li><a href="#contact" className="text-gray-400 hover:text-yellow-400">Contact</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-yellow-400">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-yellow-400">Terms of Service</a></li>
+
+              {/* UPDATED PRIVACY POLICY */}
+              <li>
+                <a
+                  href="https://thecloudadvisory.com/privacy.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-yellow-400"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+
+              {/* UPDATED TERMS OF SERVICE */}
+              <li>
+                <a
+                  href="https://thecloudadvisory.com/terms.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-yellow-400"
+                >
+                  Terms of Service
+                </a>
+              </li>
+
             </ul>
           </div>
 
