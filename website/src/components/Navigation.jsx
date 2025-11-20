@@ -1,3 +1,4 @@
+import { Link as RouterLink } from "react-router-dom"; 
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "../assets/logo.png";
@@ -8,7 +9,6 @@ export default function Navigation() {
   const linkClass =
     "text-gray-300 hover:text-yellow-400 font-medium transition";
 
-  // Smooth navigation (works cross-page)
   const goToSection = (id) => {
     if (window.location.pathname !== "/") {
       window.location.href = `/#${id}`;
@@ -26,15 +26,14 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
 
-       {/* Logo */}
-<div className="flex items-center">
-  <img
-    src={logo}
-    alt="Logo"
-    className="h-16 w-35 object-contain"
-  />
-</div>
-
+          {/* Logo */}
+          <div className="flex items-center">
+            <img
+              src={logo}
+              alt="Logo"
+              className="h-14 w-auto object-contain"
+            />
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
@@ -43,11 +42,21 @@ export default function Navigation() {
               Home
             </button>
 
-            <a href="https://university.pravinmishra.in/learn" target="_blank" className={linkClass}>
+            <a
+              href="https://university.pravinmishra.in/learn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkClass}
+            >
               University
             </a>
 
-            <a href="https://pravinmishra.in/" target="_blank" className={linkClass}>
+            <a
+              href="https://pravinmishra.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkClass}
+            >
               Blog
             </a>
 
@@ -55,7 +64,9 @@ export default function Navigation() {
               Book
             </button>
 
-            <a href="/dmi" className={linkClass}>DMI</a>
+            <RouterLink to="/dmi" className={linkClass}>
+              DMI
+            </RouterLink>
 
             <button onClick={() => goToSection("courses")} className={linkClass}>
               Courses
@@ -89,11 +100,21 @@ export default function Navigation() {
               Home
             </button>
 
-            <a href="https://university.pravinmishra.in/learn" target="_blank" className="mobile-item">
+            <a
+              href="https://university.pravinmishra.in/learn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mobile-item"
+            >
               University
             </a>
 
-            <a href="https://pravinmishra.in/" target="_blank" className="mobile-item">
+            <a
+              href="https://pravinmishra.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mobile-item"
+            >
               Blog
             </a>
 
@@ -101,7 +122,9 @@ export default function Navigation() {
               Book
             </button>
 
-            <a href="/dmi" className="mobile-item">DMI</a>
+            <RouterLink to="/dmi" className="mobile-item">
+              DMI
+            </RouterLink>
 
             <button onClick={() => goToSection("courses")} className="mobile-item">
               Courses
@@ -109,10 +132,11 @@ export default function Navigation() {
 
             <button
               onClick={() => goToSection("contact")}
-              className="block text-left px-3 py-2 bg-yellow-400 text-black rounded-md"
+              className="block text-left px-3 py-2 bg-yellow-400 text-black rounded-md font-semibold"
             >
               Contact
             </button>
+
           </div>
         </div>
       )}
