@@ -37,61 +37,52 @@ const LearnersTrust = () => {
   ];
 
   return (
-    <section className="w-full py-24 px-6 font-sans bg-white">
-      
-      {/* Section Header */}
-      <div className="text-center mb-14">
-        <span className="text-sm text-yellow-600 font-semibold tracking-wide uppercase">
+    <section className="w-full py-12 px-6 font-sans bg-white">
+      {/* Header */}
+      <div className="text-center mb-16">
+        <span className="text-sm text-yellow-600 font-semibold tracking-widest uppercase">
           Community
         </span>
 
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-3">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3">
           Trusted by Learners Worldwide
         </h2>
 
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          A growing global community of cloud aspirants, engineers, and professionals learning with Pravin Mishra.
+        <p className="text-gray-600 max-w-2xl mx-auto mt-3">
+          A growing global community of cloud aspirants, engineers, and
+          professionals learning with Pravin Mishra.
         </p>
       </div>
 
       {/* Cards Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
         {data.map((item, i) => (
           <a
             key={i}
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="
-              bg-white border border-gray-200 rounded-xl p-8 text-center
-              shadow-sm hover:shadow-xl 
-              transition-all duration-300 hover:-translate-y-2
-            "
+            className="group bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
           >
             {/* Icon */}
-            <div className="mb-4">{item.icon}</div>
+            <div className="mb-5 flex justify-center">{item.icon}</div>
 
             {/* Title */}
-            <h3 className="font-semibold text-lg text-gray-900 mb-2">
+            <h3 className="font-semibold text-lg text-gray-900">
               {item.title}
             </h3>
 
             {/* Subtitle */}
-            <p className="text-gray-600 text-sm">
-              {item.subtitle}
-            </p>
+            <p className="text-gray-600 text-sm mt-2">{item.subtitle}</p>
 
             {/* Accent Line */}
-            <div className="
-              w-10 h-[3px] bg-yellow-500 mx-auto mt-5 rounded-full 
-              transition-all duration-300 opacity-0 group-hover:opacity-100
-            "></div>
+            <div className="w-12 h-[3px] bg-yellow-500 mx-auto mt-5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
           </a>
         ))}
       </div>
 
       {/* Stats Row */}
-      <div className="max-w-6xl mx-auto mt-16 pt-10 border-t border-gray-200">
+      <div className="max-w-6xl mx-auto mt-20 pt-12 border-t border-gray-200">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 text-center">
           {[
             { number: "33000", label: "Total Followers" },
@@ -103,12 +94,11 @@ const LearnersTrust = () => {
               <h3 className="text-3xl font-bold text-yellow-600">
                 <CounterK end={stat.number} />
               </h3>
-              <p className="text-gray-600 text-sm">{stat.label}</p>
+              <p className="text-gray-600 text-sm mt-1">{stat.label}</p>
             </div>
           ))}
         </div>
       </div>
-
     </section>
   );
 };

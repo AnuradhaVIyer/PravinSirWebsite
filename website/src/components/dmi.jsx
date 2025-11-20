@@ -1,10 +1,58 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Cloud, ArrowRight, CheckCircle, Play, Users, Sparkles, Star, Clock, Award } from "lucide-react";
+import image from "../assets/photo.jpg"
+import image2 from "../assets/photo2.jpg"
+import { ChevronLeft, ChevronRight } from "lucide-react";
+// import { useRef } from "react";
 
 export default function DMI() {
   const GOOGLE_FORM_URL = "https://forms.gle/PSGTcWDSvpUJXYGN6";
   const YOUTUBE_DMI_URL = "https://www.youtube.com/embed/DqfSdsHW090";
   const [isVisible, setIsVisible] = useState(false);
+ const scrollRef = useRef(null);
+const [direction, setDirection] = useState("right");
+  const cardWidth = 340; // card + gap width
+
+  const autoScroll = () => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const maxScroll = container.scrollWidth - container.clientWidth;
+
+    if (direction === "right") {
+      if (container.scrollLeft >= maxScroll - 10) {
+        container.scrollLeft = maxScroll; // snap to end
+        setDirection("left");
+      } else {
+        container.scrollLeft += cardWidth;
+      }
+    }
+
+    if (direction === "left") {
+      if (container.scrollLeft <= 10) {
+        container.scrollLeft = 0; // snap to start
+        setDirection("right");
+      } else {
+        container.scrollLeft -= cardWidth;
+      }
+    }
+  };
+
+  useEffect(() => {
+    const interval = setInterval(autoScroll, 2500);
+    return () => clearInterval(interval);
+  }, [direction]);
+
+  // ----------------- MANUAL ARROWS -----------------
+  const scrollLeftManual = () => {
+    scrollRef.current.scrollLeft -= cardWidth;
+  };
+  const scrollRightManual = () => {
+    scrollRef.current.scrollLeft += cardWidth;
+  };
+
+
+
 
   useEffect(() => {
     setIsVisible(true);
@@ -153,7 +201,7 @@ export default function DMI() {
             </a>
 
             <a
-              href={YOUTUBE_DMI_URL}
+              href="https://www.youtube.com/watch?v=DqfSdsHW090"
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-4 px-10 py-4 rounded-full border-2 border-gray-700 text-gray-300 hover:text-white hover:border-blue-400 hover:bg-blue-400/5 transition-all duration-300 hover:scale-105"
@@ -399,86 +447,135 @@ export default function DMI() {
       <p className="text-gray-400 text-lg">Real feedback from our alumni community</p>
     </div>
 
-    {/* FIXED TESTIMONIALS ARRAY */}
     {(() => {
-      const testimonials = [
-        {
-          name: "Anuradha Iyer",
-          role: "DMI – Cohort-1",
-          feedback:
-            "I was selected in the top 100. I am very happy with the cohort. I got direction as to how to upskill my DevOps skills. Lots of hands-on labs and assignments. The content is very good. The co-mentors follow up regularly. Amazing energy. Don’t miss this opportunity!",
-          image:
-            "https://media.licdn.com/dms/image/v2/C5103AQHZh8sVH-uNqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1549595986002?e=1764806400&v=beta&t=EfojpBz32jRZjXXOtKxKWaUWn7yckbgSY0YqEbyBGxQ",
-        },
-        {
-          name: "Samanta Rizzo",
-          role: "DMI – Cohort-1",
-          feedback:
-            "Here, the mentors truly care about our growth. Over 12 weeks, we became a strong community. Even those who didn’t complete Cohort-1 joined Cohort-2 and still stay connected. This is more than a program — it's a family.",
-          image:
-            "https://media.licdn.com/dms/image/v2/D4D03AQGTSnmSulkNWw/profile-displayphoto-shrink_800_800/B4DZdU_SFIHAAc-/0/1749477566085?e=1764806400&v=beta&t=a3a2PBme1lxXAjiVoXgzD-D0VylooESu0Hr2g2aNTmY",
-        },
-        {
-          name: "Mobarak Hosen",
-          role: "DMI – Cohort-1",
-          feedback:
-            "I wasn't selected in the initial 100! But I kept doing the assignments and after 2 weeks I got promoted to the top 100 — everything changed. The cohort is free but requires deep commitment. This community is truly life-changing.",
-          image:
-            "https://media.licdn.com/dms/image/v2/D5635AQGSdjVkC-S_Tg/profile-framedphoto-shrink_800_800/B56ZlDsRW0IsAg-/0/1757777303331?e=1764079200&v=beta&t=zHI2f4jT8IMzUHaPbOEaTmOgt9ZdEflTeuIGTg9Rq5U",
-        },
-        {
-          name: "Tanisha Borana",
-          role: "DMI – Cohort-1",
-          feedback:
-            "Truly proud to be part of Cohort-1 — this program transformed my confidence in DevOps and Cloud. A big thanks to Pravin Mishra and all co-mentors for their constant support. The teamwork and encouragement made this journey unforgettable.",
-          image:
-            "https://media.licdn.com/dms/image/v2/D4D35AQE_cw2j7p3YtQ/profile-framedphoto-shrink_800_800/B4DZnT8z0PIgAg-/0/1760197557940?e=1764079200&v=beta&t=_5W6tefqV9YL-rvwKjIk8LBIVce70Vumr4A002DvKA4",
-        },
-        {
-          name: "Akintade Aduroja",
-          role: "DMI – Cohort-1",
-          feedback:
-            "I’m proud of this movement by Pravin Mishra. My mentors have given us all the room to grow and excel. Learning never stops — mastery comes from devotion to the craft.",
-          image:
-            "https://media.licdn.com/dms/image/v2/D4D03AQE-fZe00UwyAg/profile-displayphoto-crop_800_800/B4DZlh5cHYG8AM-/0/1758284072405?e=1764806400&v=beta&t=FfSQWxuvAQewsipl5-0kjALqX6vfMMSmYMmxh3uRYTc",
-        },
-      ];
+ const testimonials = [
+  {
+    name: "Anuradha Iyer",
+    role: "DMI – Cohort-1",
+    feedback:
+      "I was selected in the top 100. I am very happy with the cohort. I got direction as to how to upskill my DevOps skills. Lots of hands-on labs and assignments. The content is very good. The co-mentors follow up regularly. Amazing energy. Don’t miss this opportunity!",
+    image:
+      "https://media.licdn.com/dms/image/v2/C5103AQHZh8sVH-uNqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1549595986002?e=1764806400&v=beta&t=EfojpBz32jRZjXXOtKxKWaUWn7yckbgSY0YqEbyBGxQ",
+  },
 
-      return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((t, index) => (
-            <div
-              key={index}
-              className="group bg-gradient-to-br from-gray-900 to-black p-8 rounded-3xl border border-gray-800 hover:border-green-400/30 transition-all duration-500 hover:scale-105"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <img
-                  src={t.image}
-                  alt={t.name}
-                  className="w-14 h-14 rounded-2xl object-cover border border-green-400/30 group-hover:scale-110 transition-transform"
-                />
-                <div>
-                  <div className="font-bold text-white text-lg">{t.name}</div>
-                  <div className="text-green-300 text-sm">{t.role}</div>
-                </div>
-              </div>
+  {
+    name: "Tanisha Borana",
+    role: "DMI – Cohort-1",
+    feedback:
+      "Truly proud to be part of Cohort-1 — this program transformed my confidence in DevOps and Cloud. A big thanks to Pravin Mishra and all co-mentors for their constant support. The teamwork and encouragement made this journey unforgettable.",
+    image:
+      "https://media.licdn.com/dms/image/v2/D4D35AQE_cw2j7p3YtQ/profile-framedphoto-shrink_800_800/B4DZnT8z0PIgAg-/0/1760197557940?e=1764079200&v=beta&t=_5W6tefqV9YL-rvwKjIk8LBIVce70Vumr4A002DvKA4",
+  },
 
-              <blockquote className="text-gray-300 leading-relaxed italic">
-                “{t.feedback}”
-              </blockquote>
+  {
+    name: "Bhupendra Bhati",
+    role: "DMI – Cohort-1",
+    feedback:
+      "I am grateful to Pravin Mishra Sir and all the co-mentors for their guidance and support. This cohort has transformed my DevOps journey from theoretical understanding to real industry-level skills.",
+    image: image, // keep your imported image variable
+  },
 
-              <div className="flex gap-1 mt-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-            </div>
-          ))}
+  {
+    name: "Samanta Rizzo",
+    role: "DMI – Cohort-1",
+    feedback:
+      "Here, the mentors truly care about our growth. Over 12 weeks, we became a strong community. Even those who didn’t complete Cohort-1 joined Cohort-2 and still stay connected. This is more than a program — it's a family.",
+    image:
+      "https://media.licdn.com/dms/image/v2/D4D03AQGTSnmSulkNWw/profile-displayphoto-shrink_800_800/B4DZdU_SFIHAAc-/0/1749477566085?e=1764806400&v=beta&t=a3a2PBme1lxXAjiVoXgzD-D0VylooESu0Hr2g2aNTmY",
+  },
+
+  {
+    name: "Mobarak Hosen",
+    role: "DMI – Cohort-1",
+    feedback:
+      "I wasn't selected in the initial 100! But I kept doing the assignments and after 2 weeks I got promoted to the top 100 — everything changed. The cohort is free but requires deep commitment. This community is truly life-changing.",
+    image:
+      "https://media.licdn.com/dms/image/v2/D5635AQGSdjVkC-S_Tg/profile-framedphoto-shrink_800_800/B56ZlDsRW0IsAg-/0/1757777303331?e=1764079200&v=beta&t=zHI2f4jT8IMzUHaPbOEaTmOgt9ZdEflTeuIGTg9Rq5U",
+  },
+
+  {
+    name: "Ranbir Kaur",
+    role: "DMI – Cohort-1",
+    feedback:
+      "Proud to be part of the DevOps Micro Internship Cohort 1 led by Pravin Mishra — truly one of the best decisions I made this year. A transformative journey.",
+    image: image2, // keep your imported image variable
+  },
+];
+
+  // ----------------- AUTO SCROLL ZIG-ZAG -----------------
+  return (
+    <section className="w-full bg-gradient-to-br from-black via-gray-900 to-black py-20">
+      <div className="max-w-6xl mx-auto px-6">
+        
+        {/* HEADING */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Voices of <span className="text-green-300">Success</span>
+          </h2>
+          <p className="text-gray-400 text-lg">
+            Real feedback from our alumni community
+          </p>
         </div>
-      );
-    })()}
+
+        <div className="relative">
+          {/* LEFT ARROW */}
+          <button
+            onClick={scrollLeftManual}
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white p-3 rounded-full shadow-xl z-10 transition"
+          >
+            <ChevronLeft size={26} />
+          </button>
+
+          {/* SCROLL AREA */}
+          <div ref={scrollRef} className="overflow-x-auto scrollbar-hidden scroll-smooth">
+            <div className="flex gap-6 py-4 snap-x snap-mandatory">
+              {testimonials.map((t, index) => (
+                <div
+                  key={index}
+                  className="min-w-[300px] max-w-[320px] snap-center group bg-gradient-to-br from-gray-900 to-black p-8 rounded-3xl border border-gray-800 hover:border-green-400/30 transition-all duration-500 hover:scale-105"
+                >
+                  <div className="flex items-center gap-4 mb-6">
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      className="w-14 h-14 rounded-2xl object-cover border border-green-400/30 group-hover:scale-110 transition-transform"
+                    />
+                    <div>
+                      <div className="font-bold text-white text-lg">{t.name}</div>
+                      <div className="text-green-300 text-sm">{t.role}</div>
+                    </div>
+                  </div>
+
+                  <blockquote className="text-gray-300 leading-relaxed italic">
+                    “{t.feedback}”
+                  </blockquote>
+
+                  <div className="flex gap-1 mt-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT ARROW */}
+          <button
+            onClick={scrollRightManual}
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white p-3 rounded-full shadow-xl z-10 transition"
+          >
+            <ChevronRight size={26} />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+)()}
   </div>
 </section>
+
 
 
       {/* APPLICATION FORM SECTION */}
@@ -507,8 +604,7 @@ export default function DMI() {
                       "No fees for pilot cohort",
                       "Limited seats — motivation based selection",
                       "Short technical review call",
-                      "Start date: March 1, 2024",
-                      "12 weeks of intensive learning"
+                      "14 weeks of intensive learning"
                     ].map((benefit, index) => (
                       <div key={index} className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
                         <CheckCircle size={18} className="text-yellow-300 flex-shrink-0" />
@@ -545,18 +641,18 @@ export default function DMI() {
                       </a>
                     </div>
 
-                    <div className="mt-6 p-4 bg-black/50 rounded-xl border border-gray-700">
+                    {/* <div className="mt-6 p-4 bg-black/50 rounded-xl border border-gray-700">
                       <div className="text-sm text-gray-400">
                         <div className="flex items-center gap-2 mb-2">
                           <Clock size={16} className="text-yellow-300" />
-                          <span>Application deadline: February 25</span>
+                          <span>Application form </span>
                         </div>
                         <div className="flex items-center gap-2">
                           <Users size={16} className="text-blue-300" />
                           <span>Only 30 seats available</span>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

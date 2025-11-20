@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-
 export default function Books() {
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,7 +19,7 @@ export default function Books() {
       desc: "Master Git, GitHub workflows, version control, and real-world team collaboration techniques.",
       signature: "P. Mishra",
       author: "Pravin Mishra",
-      img: "https://m.media-amazon.com/images/I/71EAHWURLTL._AC_UF1000,1000_QL80_.jpg",
+      img: "/Git.jpg",
       rating: "4.9",
       reviews: "14",
       link: "https://www.amazon.in/dp/8197223831",
@@ -30,7 +29,7 @@ export default function Books() {
       desc: "A beginner-friendly guide to mastering AWS fundamentals and preparing for AWS Cloud Practitioner.",
       signature: "P. Mishra",
       author: "Pravin Mishra",
-      img: "https://m.media-amazon.com/images/I/61ozZNaPh+L._AC_UF1000,1000_QL80_.jpg",
+      img: "/awsCloud.jpg",
       rating: "4.3",
       reviews: "21",
       link: "https://www.amazon.in/dp/1484291719",
@@ -40,7 +39,7 @@ export default function Books() {
     desc: "Your Path to Success: A Practical Guide to Building, Deploying, and Scaling Applications with AWS DevOps.",
     signature: "P. Mishra",
     author: "Pravin Mishra",
-    img: "https://m.media-amazon.com/images/I/71Q43c34UzL._SY466_.jpg", // change if needed
+    img: "/Devops.jpg", // change if needed
     rating: "5",
     reviews: "1",
     link: "https://www.amazon.in/dp/9356484880", // add correct link

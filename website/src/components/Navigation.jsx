@@ -1,17 +1,25 @@
-import { Link as RouterLink } from "react-router-dom"; 
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "../assets/logo.png";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const linkClass =
     "text-gray-300 hover:text-yellow-400 font-medium transition";
 
-  const goToSection = (id) => {
+  const mobileClass =
+    "block w-full text-left text-gray-300 hover:text-yellow-400 px-3 py-2 font-medium transition";
+
+  const goToSection = async (id) => {
     if (window.location.pathname !== "/") {
-      window.location.href = `/#${id}`;
+      navigate("/");      // NO REFRESH
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 150);            // allows Home page to load
       return;
     }
 
@@ -26,18 +34,13 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
 
-          {/* Logo */}
-          <div className="flex items-center">
-            <img
-              src={logo}
-              alt="Logo"
-              className="h-14 w-auto object-contain"
-            />
+          {/* Logo → Scroll to Home without refresh */}
+          <div className="flex items-center cursor-pointer" onClick={() => goToSection("home")}>
+            <img src={logo} alt="Logo" className="h-16 w-40 object-contain" />
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-
             <button onClick={() => goToSection("home")} className={linkClass}>
               Home
             </button>
@@ -80,14 +83,13 @@ export default function Navigation() {
             </button>
           </div>
 
-          {/* Mobile Button */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-gray-300 hover:text-yellow-400"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-
         </div>
       </div>
 
@@ -96,7 +98,7 @@ export default function Navigation() {
         <div className="md:hidden bg-black border-t border-gray-800">
           <div className="px-3 py-4 space-y-2">
 
-            <button onClick={() => goToSection("home")} className="mobile-item">
+            <button onClick={() => goToSection("home")} className={mobileClass}>
               Home
             </button>
 
@@ -104,7 +106,7 @@ export default function Navigation() {
               href="https://university.pravinmishra.in/learn"
               target="_blank"
               rel="noopener noreferrer"
-              className="mobile-item"
+              className={mobileClass}
             >
               University
             </a>
@@ -113,26 +115,26 @@ export default function Navigation() {
               href="https://pravinmishra.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="mobile-item"
+              className={mobileClass}
             >
               Blog
             </a>
 
-            <button onClick={() => goToSection("book")} className="mobile-item">
+            <button onClick={() => goToSection("book")} className={mobileClass}>
               Book
             </button>
 
-            <RouterLink to="/dmi" className="mobile-item">
+            <RouterLink to="/dmi" className={mobileClass}>
               DMI
             </RouterLink>
 
-            <button onClick={() => goToSection("courses")} className="mobile-item">
+            <button onClick={() => goToSection("courses")} className={mobileClass}>
               Courses
             </button>
 
             <button
               onClick={() => goToSection("contact")}
-              className="block text-left px-3 py-2 bg-yellow-400 text-black rounded-md font-semibold"
+              className="block w-full text-left px-3 py-2 bg-yellow-400 text-black rounded-md font-semibold"
             >
               Contact
             </button>

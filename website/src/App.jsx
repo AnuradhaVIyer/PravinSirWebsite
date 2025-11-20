@@ -12,7 +12,7 @@ import Books from "./components/books";
 import LearnersTrust from "./components/Achievements";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
-import CloudDevOpsConsulting from "./components/Consulting";
+// import CloudDevOpsConsulting from "./components/Consulting";
 import DMI from "./components/dmi";
 import Maintenance from "./error-pages/Maintenance";
 import ErrorPage from "./error-pages/Error";
@@ -54,7 +54,7 @@ function App() {
             <Route path="/dmi" element={<DMI />} />
 
             {/* OPTIONAL FUTURE ROUTES */}
-            <Route path="/consulting" element={<CloudDevOpsConsulting />} />
+            {/* <Route path="/consulting" element={<CloudDevOpsConsulting />} /> */}
             {/* Add others if needed */}
             {/* Maintenance Page*/ }
             <Route path="/maintenance" element={<Maintenance />} />
