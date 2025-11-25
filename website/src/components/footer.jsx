@@ -74,13 +74,13 @@ export default function Footer() {
               <li><a href="/#contact" className="footer-link">Contact</a></li>
 
               <li>
-                <Link to="/privacy" target="_blank" className="footer-link">
+                <Link to="/privacy" className="footer-link">
                   Privacy Policy
                 </Link>
               </li>
 
               <li>
-                <Link to ="/terms" target="_blank" className="footer-link">
+                <Link to ="/terms" className="footer-link">
                   Terms of Service
                 </Link>
               </li>
