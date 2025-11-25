@@ -6,7 +6,7 @@ import {
   Instagram,
   Youtube,
 } from "lucide-react";
-
+import {Link} from "react-router-dom"
 import logo from "../assets/logo.png";
 
 export default function Footer() {
@@ -74,15 +74,15 @@ export default function Footer() {
               <li><a href="/#contact" className="footer-link">Contact</a></li>
 
               <li>
-                <a href="/privacy" target="_blank" className="footer-link">
+                <Link to="/privacy" target="_blank" className="footer-link">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a href="/terms" target="_blank" className="footer-link">
+                <Link to ="/terms" target="_blank" className="footer-link">
                   Terms of Service
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
