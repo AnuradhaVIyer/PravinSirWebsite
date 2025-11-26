@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function Maintenance() {
-    const navigate = useNavigate();
 
     useEffect(() => {
         // Hide navbar and footer

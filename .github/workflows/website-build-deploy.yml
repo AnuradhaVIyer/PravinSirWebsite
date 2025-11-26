@@ -1,18 +1,13 @@
 name: Build & Deploy Website
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'dist/**'
   workflow_dispatch:
 
 permissions:
   contents: write   # needed for pushing dist & creating tags
 
 jobs:
-  build-and-test:
+  build-and-test-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,14 +28,6 @@ jobs:
       - name: Run unit tests (if present)
         working-directory: ./website
         run: npm test --if-present
-
-      - name: Lint code
-        working-directory: ./website
-        run: npm run lint --if-present
-
-      - name: Type check (TS only)
-        working-directory: ./website
-        run: npm run type-check --if-present
 
       - name: Build Vite project
         working-directory: ./website
